@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import off from './bulboff.jpeg'
+import on from './bulbon.jpeg'
 import './App.css';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
+  const [show,setShow]=useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Turn on </h1>
+     <button onClick={()=>setShow(true)}>On</button>
+     <button onClick={()=>setShow(false)}>Off</button>
+
+{show ? <On /> :<Off />}
+
+     
     </div>
   );
 }
 
 export default App;
+
+function On(){
+  return(
+    <>
+ <img src={on}  />
+    </>
+    
+  )
+}
+
+function Off(){
+  return(
+    <>
+ <img src={off}  />
+    </>
+    
+  )
+}
